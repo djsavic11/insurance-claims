@@ -45,7 +45,8 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 ### 1. Project Setup
 
 - Create the minimal repo structure
-- Define the runtime and packaging approach
+- Use Python 3.12 across Lambda, CLI tooling, and CDK to keep the repo single-language
+- Use simple `venv` + `pip` packaging for phase 1
 - Add placeholder folders for data, prompts, and outputs
 
 ### 2. AWS Infrastructure
@@ -124,8 +125,8 @@ Add a minimal UI only if it improves the demo materially.
 
 ## First Recommended Tasks
 
-1. Decide the implementation runtime for the PoC
-2. Create the minimal folder structure
-3. Scaffold the CDK stack
-4. Implement the first Lambda handler path
-5. Define the first extraction output schema
+1. Create the minimal folder structure
+2. Scaffold the CDK stack
+3. Implement the first Lambda handler path
+4. Define the first extraction output schema
+5. Add a sample input document for the demo

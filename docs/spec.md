@@ -28,6 +28,13 @@ Build a proof of concept for an AI-powered insurance claims processing pipeline 
 - One simple document type only
 - Example target format: single-page PDF
 
+## Implementation Runtime
+
+- Use Python 3.12 for the PoC
+- Use Python for AWS Lambda handlers, CLI utilities, and AWS CDK
+- Use simple `venv` + `pip` based packaging in phase 1
+- Do not use containers unless a later task requires them
+
 ## Output
 
 - One stable structured output format
@@ -47,4 +54,3 @@ Build a proof of concept for an AI-powered insurance claims processing pipeline 
 - Lambda calls Bedrock successfully
 - Structured output is produced
 - Output is saved to Amazon S3
-

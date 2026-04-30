@@ -12,4 +12,9 @@ Do not use it for repo setup notes or documentation cleanup.
 
 ## Entries
 
-No task runs logged yet.
+### 2026-05-01
+
+- Task: decide implementation runtime for the PoC
+- Done: selected Python 3.12 as the shared runtime for Lambda, CLI tooling, and AWS CDK, with simple `venv` + `pip` packaging for phase 1
+- Next: create the minimal folder structure
+- Blocker: none

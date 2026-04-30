@@ -2,7 +2,6 @@
 
 ## Now
 
-- Decide the implementation runtime for the PoC
 - Create the minimal folder structure
 - Scaffold the CDK stack
 
@@ -31,3 +30,4 @@
 - Create `docs/plan.md`
 - Create `AGENTS.md`
 - Organize working docs under `docs/`
+- Decide the implementation runtime for the PoC
