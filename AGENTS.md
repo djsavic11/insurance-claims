@@ -20,6 +20,13 @@ Keep it short and keep it current.
 - Use [docs/log.md](docs/log.md) only for active task execution updates
 - Use this file for agent working rules and lightweight coordination
 
+## File Roles
+
+- `docs/plan.md` describes how the PoC will be built: phases, execution order, implementation approach, and changeable decisions
+- `docs/spec.md` describes what the system must do: inputs, outputs, behavior rules, and constraints
+- `docs/tasks.md` is the live work queue
+- `docs/log.md` is the execution log for real task runs only
+
 ## Working Rules
 
 - Keep the solution simple
@@ -27,7 +34,10 @@ Keep it short and keep it current.
 - Do not expand scope beyond the current phase
 - Prefer the core slice over optional features
 - Keep output structures stable once defined
-- Update docs if scope, assumptions, or state changes
+- Update `docs/spec.md` when system behavior, inputs, outputs, or constraints change
+- Update `docs/plan.md` when phases, sequencing, tooling, or implementation approach change
+- Update `docs/tasks.md` when task state changes
+- Update `docs/log.md` only for real task execution updates
 
 ## Task Handling
 

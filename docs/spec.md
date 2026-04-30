@@ -8,38 +8,36 @@ Define the minimum functional scope for the Insurance Claims Processing PoC.
 
 Build a proof of concept for an AI-powered insurance claims processing pipeline on AWS.
 
-## Core Slice
+## Scope Reference
 
-1. Upload one claim document to Amazon S3
-2. Trigger an AWS Lambda handler
-3. Invoke Amazon Bedrock from Lambda
-4. Extract structured claim data from the document
-5. Save the result back to Amazon S3
-
-## Extensions Later
-
-- PII checks and guardrails
-- Policy enrichment from Amazon Knowledge Bases
-- Model comparison
-- Simple UI for demo display
+This specification describes the required system behavior for the core slice defined in [plan.md](plan.md).
 
 ## Input
 
 - One simple document type only
 - Example target format: single-page PDF
 
-## Implementation Runtime
-
-- Use Python 3.12 for the PoC
-- Use Python for AWS Lambda handlers, CLI utilities, and AWS CDK
-- Use simple `venv` + `pip` based packaging in phase 1
-- Do not use containers unless a later task requires them
-
 ## Output
 
-- One stable structured output format
-- Saved to Amazon S3
-- Able to support downstream validation and demo display
+The system must produce a JSON object with this stable structure:
+
+```json
+{
+  "claim_id": "string",
+  "amount": 123.45,
+  "summary": "string"
+}
+```
+
+- `claim_id`: string
+- `amount`: number or `null`
+- `summary`: string
+- The JSON output must be saved to Amazon S3
+
+## Behavior Rules
+
+- If a field cannot be extracted, set it to `null`
+- The system must always produce output and must not fail silently
 
 ## Constraints
 
@@ -47,6 +45,7 @@ Build a proof of concept for an AI-powered insurance claims processing pipeline 
 - Prefer end-to-end clarity over completeness
 - Avoid production-level architecture
 - Do not broaden document support early
+- Keep the output structure stable once defined, even if extraction improves
 
 ## Done Criteria For Phase 1
 

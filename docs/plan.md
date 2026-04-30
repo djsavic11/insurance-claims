@@ -51,6 +51,7 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 
 ### 2. AWS Infrastructure
 
+- Use AWS CDK for infrastructure definition
 - Define the minimal CDK stack
 - Create S3 bucket for documents and outputs
 - Create Lambda function and event trigger
@@ -59,13 +60,10 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 
 ### 3. Document Processing Flow
 
-- Support only one simple document format for the demo
-- Example: single-page PDF
 - Implement document ingestion from S3 event
 - Implement document parsing and prompt preparation
 - Implement extraction and summary generation
 - Save outputs in a simple structured format
-- Keep the output structure stable once defined, even if extraction improves
 
 ### 4. Safety And Validation
 
