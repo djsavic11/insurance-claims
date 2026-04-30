@@ -90,3 +90,47 @@ This repository keeps documentation intentionally small so humans and agents can
 - `prompts/`: prompt assets
 - `data/input/`: sample input documents
 - `data/output/`: sample outputs
+
+---
+
+## Local Python Setup
+
+This PoC uses Python `3.12` with `venv` and `pip`.
+
+Create and activate a virtual environment:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+```
+
+Install CDK dependencies:
+
+```bash
+pip install -r infra/cdk/requirements.txt
+```
+
+If more Python modules are added later, install their dependencies in the same active virtual environment.
+
+---
+
+## Running Python Files
+
+Run a Python file from the repository root:
+
+```bash
+python path/to/file.py
+```
+
+Examples:
+
+```bash
+python infra/cdk/app.py
+```
+
+For the CDK app specifically, run commands from `infra/cdk/`:
+
+```bash
+cd infra/cdk
+python app.py
+```
