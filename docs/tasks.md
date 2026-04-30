@@ -2,13 +2,13 @@
 
 ## Now
 
-- Scaffold the CDK stack
-
-## Next
-
 - Implement the first Lambda handler path
 - Define the first extraction output schema
 - Add a sample input document for the demo
+
+## Next
+
+- Scaffold the first S3-triggered infrastructure resources in CDK
 
 ## Later
 
@@ -31,3 +31,4 @@
 - Organize working docs under `docs/`
 - Decide the implementation runtime for the PoC
 - Create the minimal folder structure
+- Scaffold the CDK stack

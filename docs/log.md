@@ -23,3 +23,8 @@ Do not use it for repo setup notes or documentation cleanup.
 - Done: added placeholder directories for infrastructure, Lambda handlers, shared Python code, prompts, and sample input/output data, and added a minimal `.gitignore`
 - Next: scaffold the CDK stack
 - Blocker: none
+
+- Task: scaffold the CDK stack
+- Done: added a minimal Python CDK app, dependency file, and placeholder stack class under `infra/cdk/`
+- Next: implement the first Lambda handler path
+- Blocker: none

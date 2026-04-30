@@ -84,7 +84,7 @@ This repository keeps documentation intentionally small so humans and agents can
 
 ## Repository Structure
 
-- `infra/cdk/`: infrastructure definition
+- `infra/cdk/`: CDK app and stack definitions
 - `src/handlers/`: Lambda handler entrypoints
 - `src/lib/`: shared Python helpers
 - `prompts/`: prompt assets
