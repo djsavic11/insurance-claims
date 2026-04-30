@@ -33,3 +33,8 @@ Do not use it for repo setup notes or documentation cleanup.
 - Done: added a minimal Lambda entrypoint that parses the first S3 record, derives a fallback claim identifier from the object key, and returns the required extraction-shaped payload
 - Next: define the first extraction output schema
 - Blocker: none
+
+- Task: enable local testing for the Lambda handler
+- Done: added a standalone local entrypoint so the claims processor can be run directly with a built-in sample S3 event or a JSON event file
+- Next: define the first extraction output schema
+- Blocker: none

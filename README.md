@@ -100,7 +100,7 @@ This PoC uses Python `3.12` with `venv` and `pip`.
 Create and activate a virtual environment:
 
 ```bash
-python3.12 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
@@ -126,6 +126,8 @@ Examples:
 
 ```bash
 python infra/cdk/app.py
+python -m src.handlers.claims_processor
+python -m src.handlers.claims_processor --event path/to/event.json
 ```
 
 For the CDK app specifically, run commands from `infra/cdk/`:
@@ -133,4 +135,16 @@ For the CDK app specifically, run commands from `infra/cdk/`:
 ```bash
 cd infra/cdk
 python app.py
+```
+
+For local Lambda handler testing, run from the repository root:
+
+```bash
+python -m src.handlers.claims_processor
+```
+
+That command uses a built-in sample S3 event. To test with your own event payload:
+
+```bash
+python -m src.handlers.claims_processor --event path/to/event.json
 ```

@@ -9,6 +9,7 @@
 
 - Implement the first Lambda handler path with Bedrock invocation
 - Scaffold the first S3-triggered infrastructure resources in CDK
+- Add a sample event payload for local handler runs
 
 ## Later
 
@@ -33,3 +34,4 @@
 - Create the minimal folder structure
 - Scaffold the CDK stack
 - Implement the first Lambda handler path
+- Enable local testing for the Lambda handler
