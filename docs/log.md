@@ -28,3 +28,8 @@ Do not use it for repo setup notes or documentation cleanup.
 - Done: added a minimal Python CDK app, dependency file, and placeholder stack class under `infra/cdk/`
 - Next: implement the first Lambda handler path
 - Blocker: none
+
+- Task: implement the first Lambda handler path
+- Done: added a minimal Lambda entrypoint that parses the first S3 record, derives a fallback claim identifier from the object key, and returns the required extraction-shaped payload
+- Next: define the first extraction output schema
+- Blocker: none

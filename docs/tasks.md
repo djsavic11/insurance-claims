@@ -2,12 +2,12 @@
 
 ## Now
 
-- Implement the first Lambda handler path
 - Define the first extraction output schema
 - Add a sample input document for the demo
 
 ## Next
 
+- Implement the first Lambda handler path with Bedrock invocation
 - Scaffold the first S3-triggered infrastructure resources in CDK
 
 ## Later
@@ -32,3 +32,4 @@
 - Decide the implementation runtime for the PoC
 - Create the minimal folder structure
 - Scaffold the CDK stack
+- Implement the first Lambda handler path
