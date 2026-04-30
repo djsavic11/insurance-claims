@@ -2,7 +2,6 @@
 
 ## Now
 
-- Create the minimal folder structure
 - Scaffold the CDK stack
 
 ## Next
@@ -31,3 +30,4 @@
 - Create `AGENTS.md`
 - Organize working docs under `docs/`
 - Decide the implementation runtime for the PoC
+- Create the minimal folder structure

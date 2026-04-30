@@ -18,3 +18,8 @@ Do not use it for repo setup notes or documentation cleanup.
 - Done: selected Python 3.12 as the shared runtime for Lambda, CLI tooling, and AWS CDK, with simple `venv` + `pip` packaging for phase 1
 - Next: create the minimal folder structure
 - Blocker: none
+
+- Task: create the minimal folder structure
+- Done: added placeholder directories for infrastructure, Lambda handlers, shared Python code, prompts, and sample input/output data, and added a minimal `.gitignore`
+- Next: scaffold the CDK stack
+- Blocker: none

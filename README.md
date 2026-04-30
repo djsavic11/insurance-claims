@@ -81,3 +81,12 @@ This repository keeps documentation intentionally small so humans and agents can
 - [docs/spec.md](docs/spec.md): PoC scope, inputs, outputs, and done criteria
 - [docs/tasks.md](docs/tasks.md): active task list (current iteration only)
 - [docs/log.md](docs/log.md): task execution log (decisions, outcomes, blockers)
+
+## Repository Structure
+
+- `infra/cdk/`: infrastructure definition
+- `src/handlers/`: Lambda handler entrypoints
+- `src/lib/`: shared Python helpers
+- `prompts/`: prompt assets
+- `data/input/`: sample input documents
+- `data/output/`: sample outputs
