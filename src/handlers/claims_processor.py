@@ -6,8 +6,10 @@ if __package__ in (None, ""):
     import sys
 
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from lib.claim_output import build_claim_output
     from lib.s3_event import extract_first_s3_object, fallback_claim_id
 else:
+    from ..lib.claim_output import build_claim_output
     from ..lib.s3_event import extract_first_s3_object, fallback_claim_id
 
 
@@ -20,11 +22,11 @@ def lambda_handler(event, context):
         claim_id = "unknown"
         summary = str(exc)
 
-    return {
-        "claim_id": claim_id,
-        "amount": None,
-        "summary": summary,
-    }
+    return build_claim_output(
+        claim_id=claim_id,
+        amount=None,
+        summary=summary,
+    )
 
 
 def _default_event():

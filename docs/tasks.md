@@ -2,11 +2,11 @@
 
 ## Now
 
-- Define the first extraction output schema
 - Add a sample input document for the demo
 
 ## Next
 
+- Define validation rules for the extraction output schema
 - Implement the first Lambda handler path with Bedrock invocation
 - Scaffold the first S3-triggered infrastructure resources in CDK
 - Add a sample event payload for local handler runs
@@ -35,3 +35,4 @@
 - Scaffold the CDK stack
 - Implement the first Lambda handler path
 - Enable local testing for the Lambda handler
+- Define the first extraction output schema

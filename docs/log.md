@@ -38,3 +38,8 @@ Do not use it for repo setup notes or documentation cleanup.
 - Done: added a standalone local entrypoint so the claims processor can be run directly with a built-in sample S3 event or a JSON event file
 - Next: define the first extraction output schema
 - Blocker: none
+
+- Task: define the first extraction output schema
+- Done: added a shared claim output schema module and updated the handler to build responses through that contract
+- Next: add a sample input document for the demo
+- Blocker: none
