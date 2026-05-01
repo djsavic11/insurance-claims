@@ -17,6 +17,7 @@ This specification describes the required system behavior for the core slice def
 - One simple document type only
 - Example target format: single-page PDF
 - The document must enter the system through an upload to Amazon S3
+- For the PoC, uploaded claim documents should be stored under the `claims/` prefix
 
 ## Output
 
@@ -33,11 +34,12 @@ The system must produce a JSON object with this stable structure:
 - `claim_id`: string
 - `amount`: number or `null`
 - `summary`: string
-- The JSON output must be saved to Amazon S3
+- The JSON output must be saved to Amazon S3 under the `processed/` prefix
 
 ## Behavior Rules
 
 - The system must react to a document uploaded to Amazon S3
+- The processing trigger must apply to documents uploaded under the `claims/` prefix only
 - If a field cannot be extracted, set it to `null`
 - The system must always produce output and must not fail silently
 

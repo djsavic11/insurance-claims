@@ -32,7 +32,7 @@ _LOCAL_OUTPUT_ROOT = Path(__file__).resolve().parents[2] / "data" / "output"
 def lambda_handler(event, context):
     local_input_root = os.getenv("CLAIMS_LOCAL_INPUT_ROOT")
     local_output_root = os.getenv("CLAIMS_LOCAL_OUTPUT_ROOT")
-    output_bucket_name = os.getenv("OUTPUT_BUCKET_NAME")
+    claims_bucket_name = os.getenv("CLAIMS_BUCKET_NAME")
     output_prefix = os.getenv("OUTPUT_PREFIX", "processed")
     model_id = os.getenv("BEDROCK_MODEL_ID", "").strip()
 
@@ -83,7 +83,7 @@ def lambda_handler(event, context):
         store_claim_output(
             claim_output,
             claim_id=claim_output["claim_id"],
-            output_bucket_name=output_bucket_name,
+            bucket_name=claims_bucket_name,
             output_prefix=output_prefix,
             s3_client=_aws_client("s3"),
             local_output_root=local_output_root,

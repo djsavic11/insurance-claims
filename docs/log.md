@@ -73,3 +73,15 @@ Do not use it for repo setup notes or documentation cleanup.
 - Done: added `scripts/upload_claim.py` so the sample PDF can be uploaded to the deployed input bucket with a small `boto3` CLI helper
 - Next: none
 - Blocker: none
+
+### 2026-05-02
+
+- Task: document single-bucket S3 storage decision
+- Done: updated the live task queue, plan, and spec to use one S3 bucket with `claims/` for input documents and `processed/` for generated outputs
+- Next: refactor the CDK stack to match the documented single-bucket storage layout
+- Blocker: none
+
+- Task: refactor the CDK stack to use one S3 bucket with `claims/` for inputs and `processed/` for outputs
+- Done: replaced the separate input and output buckets with one claims bucket, updated the Lambda environment and permissions to read and write the same bucket, refreshed the sample event and upload helper wording, and updated the README to describe outputs under the `processed/` prefix
+- Next: none
+- Blocker: none

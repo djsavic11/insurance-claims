@@ -20,12 +20,12 @@ def upload_claim(file_path, bucket_name, object_key, *, region_name=None):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Upload the sample insurance claim PDF to the configured S3 input bucket."
+        description="Upload the sample insurance claim PDF to the configured S3 claims bucket."
     )
     parser.add_argument(
         "--bucket",
         required=True,
-        help="Name of the S3 input bucket.",
+        help="Name of the S3 claims bucket.",
     )
     parser.add_argument(
         "--file",

@@ -5,7 +5,7 @@
       "eventName": "ObjectCreated:Put",
       "s3": {
         "bucket": {
-          "name": "demo-claims-input-bucket"
+          "name": "demo-claims-bucket"
         },
         "object": {
           "key": "claims/claim-001.pdf"

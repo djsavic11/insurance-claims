@@ -162,10 +162,10 @@ If you want the local run to call Amazon Bedrock instead of the regex-based loca
 
 ## Demo Upload
 
-Use the helper script below to upload the sample PDF to the deployed S3 input bucket:
+Use the helper script below to upload the sample PDF to the deployed S3 claims bucket:
 
 ```bash
-python scripts/upload_claim.py --bucket <claims-input-bucket-name>
+python scripts/upload_claim.py --bucket <claims-bucket-name>
 ```
 
 Optional arguments:
@@ -174,4 +174,5 @@ Optional arguments:
 - `--key` to change the S3 object key
 - `--region` to override the S3 client region
 
-The CDK stack outputs the generated input and output bucket names after deployment.
+Processed JSON results are written back to the same bucket under the `processed/` prefix.
+The CDK stack outputs the generated claims bucket name after deployment.

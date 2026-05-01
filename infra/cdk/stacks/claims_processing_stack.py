@@ -18,17 +18,9 @@ class ClaimsProcessingStack(Stack):
             or "anthropic.claude-3-haiku-20240307-v1:0"
         )
 
-        input_bucket = s3.Bucket(
+        claims_bucket = s3.Bucket(
             self,
-            "ClaimsInputBucket",
-            auto_delete_objects=True,
-            removal_policy=RemovalPolicy.DESTROY,
-            enforce_ssl=True,
-        )
-
-        output_bucket = s3.Bucket(
-            self,
-            "ClaimsOutputBucket",
+            "ClaimsBucket",
             auto_delete_objects=True,
             removal_policy=RemovalPolicy.DESTROY,
             enforce_ssl=True,
@@ -51,15 +43,13 @@ class ClaimsProcessingStack(Stack):
             timeout=Duration.seconds(60),
             memory_size=512,
             environment={
-                "INPUT_BUCKET_NAME": input_bucket.bucket_name,
-                "OUTPUT_BUCKET_NAME": output_bucket.bucket_name,
+                "CLAIMS_BUCKET_NAME": claims_bucket.bucket_name,
                 "OUTPUT_PREFIX": "processed",
                 "BEDROCK_MODEL_ID": bedrock_model_id,
             },
         )
 
-        input_bucket.grant_read(claims_processor)
-        output_bucket.grant_put(claims_processor)
+        claims_bucket.grant_read_write(claims_processor)
         claims_processor.add_to_role_policy(
             iam.PolicyStatement(
                 actions=["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
@@ -67,7 +57,7 @@ class ClaimsProcessingStack(Stack):
             )
         )
 
-        input_bucket.add_event_notification(
+        claims_bucket.add_event_notification(
             s3.EventType.OBJECT_CREATED,
             s3_notifications.LambdaDestination(claims_processor),
             s3.NotificationKeyFilter(prefix="claims/"),
@@ -75,13 +65,8 @@ class ClaimsProcessingStack(Stack):
 
         CfnOutput(
             self,
-            "ClaimsInputBucketName",
-            value=input_bucket.bucket_name,
-        )
-        CfnOutput(
-            self,
-            "ClaimsOutputBucketName",
-            value=output_bucket.bucket_name,
+            "ClaimsBucketName",
+            value=claims_bucket.bucket_name,
         )
         CfnOutput(
             self,

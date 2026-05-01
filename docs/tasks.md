@@ -39,3 +39,4 @@
 - Implement the first Lambda handler path with Bedrock invocation
 - Scaffold the first S3-triggered infrastructure resources in CDK
 - Implement a local CLI upload script using `boto3` to upload `data/input/claim-001.pdf` to the S3 input bucket
+- Refactor the CDK stack to use one S3 bucket with `claims/` for inputs and `processed/` for outputs

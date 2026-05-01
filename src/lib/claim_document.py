@@ -31,7 +31,7 @@ def store_claim_output(
     output,
     *,
     claim_id,
-    output_bucket_name=None,
+    bucket_name=None,
     output_prefix="processed",
     s3_client=None,
     local_output_root=None,
@@ -45,11 +45,11 @@ def store_claim_output(
         destination.write_bytes(payload)
         return destination
 
-    if not output_bucket_name or s3_client is None:
-        raise ValueError("Output bucket and S3 client are required for persisted output")
+    if not bucket_name or s3_client is None:
+        raise ValueError("S3 bucket and client are required for persisted output")
 
     s3_client.put_object(
-        Bucket=output_bucket_name,
+        Bucket=bucket_name,
         Key=output_key,
         Body=payload,
         ContentType="application/json",

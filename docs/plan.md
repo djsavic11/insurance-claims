@@ -22,7 +22,7 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 2. Trigger an AWS Lambda handler
 3. Invoke Amazon Bedrock from Lambda
 4. Extract structured claim data
-5. Save results back to Amazon S3
+5. Save results back to Amazon S3 under a separate output prefix
 
 ### Extensions Later
 
@@ -53,7 +53,7 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 
 - Use AWS CDK for infrastructure definition
 - Define the minimal CDK stack
-- Create S3 bucket for documents and outputs
+- Create one S3 bucket with separate prefixes for documents and outputs
 - Create Lambda function and event trigger
 - Add Bedrock access configuration
 - Add optional Amazon Knowledge Bases integration point
@@ -88,7 +88,7 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 ### Phase 1
 
 Define the smallest runnable slice:
-S3 upload -> Lambda -> Bedrock -> structured output -> S3 result
+S3 upload under `claims/` -> Lambda -> Bedrock -> structured output under `processed/`
 
 ### Phase 2
 
