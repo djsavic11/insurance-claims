@@ -2,14 +2,11 @@
 
 ## Now
 
-- Add a sample input document for the demo
+- None
 
 ## Next
 
-- Define validation rules for the extraction output schema
-- Implement the first Lambda handler path with Bedrock invocation
-- Scaffold the first S3-triggered infrastructure resources in CDK
-- Add a sample event payload for local handler runs
+- None
 
 ## Later
 
@@ -36,3 +33,9 @@
 - Implement the first Lambda handler path
 - Enable local testing for the Lambda handler
 - Define the first extraction output schema
+- Add a sample input document for the demo
+- Define validation rules for the extraction output schema
+- Add a sample event payload for local handler runs
+- Implement the first Lambda handler path with Bedrock invocation
+- Scaffold the first S3-triggered infrastructure resources in CDK
+- Implement a local CLI upload script using `boto3` to upload `data/input/claim-001.pdf` to the S3 input bucket

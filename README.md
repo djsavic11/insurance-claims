@@ -85,11 +85,14 @@ This repository keeps documentation intentionally small so humans and agents can
 ## Repository Structure
 
 - `infra/cdk/`: CDK app and stack definitions
+- `scripts/`: small CLI helpers for the demo workflow
 - `src/handlers/`: Lambda handler entrypoints
 - `src/lib/`: shared Python helpers
 - `prompts/`: prompt assets
+- `data/events/`: sample event payloads for local handler runs
 - `data/input/`: sample input documents
 - `data/output/`: sample outputs
+- `data/input/claim-001.pdf`: current sample claim document for local development
 
 ---
 
@@ -104,13 +107,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Install CDK dependencies:
+Install project dependencies:
 
 ```bash
 pip install -r infra/cdk/requirements.txt
 ```
 
-If more Python modules are added later, install their dependencies in the same active virtual environment.
+That installs both the CDK libraries and `boto3` for the local upload and Bedrock-enabled CLI flows.
 
 ---
 
@@ -143,8 +146,32 @@ For local Lambda handler testing, run from the repository root:
 python -m src.handlers.claims_processor
 ```
 
-That command uses a built-in sample S3 event. To test with your own event payload:
+That command uses local input and output folders by default. To test with the checked-in sample event payload:
+
+```bash
+python -m src.handlers.claims_processor --event data/events/s3-put-claim-001.json
+```
+
+To test with your own event payload:
 
 ```bash
 python -m src.handlers.claims_processor --event path/to/event.json
 ```
+
+If you want the local run to call Amazon Bedrock instead of the regex-based local fallback, set `BEDROCK_MODEL_ID` and ensure AWS credentials are available before running the command.
+
+## Demo Upload
+
+Use the helper script below to upload the sample PDF to the deployed S3 input bucket:
+
+```bash
+python scripts/upload_claim.py --bucket <claims-input-bucket-name>
+```
+
+Optional arguments:
+
+- `--file` to upload a different PDF
+- `--key` to change the S3 object key
+- `--region` to override the S3 client region
+
+The CDK stack outputs the generated input and output bucket names after deployment.

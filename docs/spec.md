@@ -16,6 +16,7 @@ This specification describes the required system behavior for the core slice def
 
 - One simple document type only
 - Example target format: single-page PDF
+- The document must enter the system through an upload to Amazon S3
 
 ## Output
 
@@ -36,8 +37,17 @@ The system must produce a JSON object with this stable structure:
 
 ## Behavior Rules
 
+- The system must react to a document uploaded to Amazon S3
 - If a field cannot be extracted, set it to `null`
 - The system must always produce output and must not fail silently
+
+## Validation Rules
+
+- `claim_id` must be a non-empty string
+- If the extracted `claim_id` is empty, fall back to the uploaded document filename stem
+- `amount` must be a number greater than or equal to `0`, or `null`
+- `summary` must be a non-empty string
+- The output must not contain additional top-level fields outside `claim_id`, `amount`, and `summary`
 
 ## Constraints
 
