@@ -83,5 +83,20 @@ Do not use it for repo setup notes or documentation cleanup.
 
 - Task: refactor the CDK stack to use one S3 bucket with `claims/` for inputs and `processed/` for outputs
 - Done: replaced the separate input and output buckets with one claims bucket, updated the Lambda environment and permissions to read and write the same bucket, refreshed the sample event and upload helper wording, and updated the README to describe outputs under the `processed/` prefix
+- Next: add CDK support for Amazon Bedrock model invocation logging with S3 and CloudWatch Logs
+- Blocker: none
+
+- Task: add CDK support for Amazon Bedrock model invocation logging with S3 and CloudWatch Logs
+- Done: added CDK-managed Bedrock invocation logging configuration through an AWS custom resource so the stack now enables account-and-Region Bedrock logging to Amazon S3 and CloudWatch Logs during deployment
+- Next: configure Bedrock invocation log delivery in CDK to use a log prefix in the existing claims S3 bucket
+- Blocker: none
+
+- Task: configure Bedrock invocation log delivery in CDK to use a log prefix in the existing claims S3 bucket
+- Done: reused the existing claims bucket for Bedrock invocation logs under the `bedrock-invocation-logs/` prefix, added the required bucket policy for the Bedrock service principal, and exposed the log prefix as a stack output
+- Next: configure the required CloudWatch Logs log group and IAM service role in CDK for Bedrock invocation logging
+- Blocker: none
+
+- Task: configure the required CloudWatch Logs log group and IAM service role in CDK for Bedrock invocation logging
+- Done: added a dedicated CloudWatch Logs log group and Bedrock service role with the required trust and `logs:CreateLogStream` and `logs:PutLogEvents` permissions, and wired both into the deployed invocation logging configuration
 - Next: none
 - Blocker: none

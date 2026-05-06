@@ -56,6 +56,7 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 - Create one S3 bucket with separate prefixes for documents and outputs
 - Create Lambda function and event trigger
 - Add Bedrock access configuration
+- Configure account-level Bedrock invocation logging through CDK using the claims bucket and CloudWatch Logs
 - Add optional Amazon Knowledge Bases integration point
 
 ### 3. Document Processing Flow
