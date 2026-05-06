@@ -21,7 +21,7 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 1. Upload a claim document to Amazon S3
 2. Trigger an AWS Lambda handler
 3. Invoke Amazon Bedrock from Lambda
-4. Extract structured claim data
+4. Extract the stable structured claim schema defined in `docs/spec.md`
 5. Save results back to Amazon S3 under a separate output prefix
 
 ### Extensions Later
@@ -63,19 +63,20 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 
 - Implement document ingestion from S3 event
 - Implement document parsing and prompt preparation
-- Implement extraction and summary generation
-- Save outputs in a simple structured format
+- Implement extraction for the stable claim schema, including claimant, policy, incident, amount, description, and summary fields
+- Save outputs in the structured format defined in `docs/spec.md`
 
 ### 4. Safety And Validation
 
 - Add basic PII handling checks
 - Add guardrail touchpoints
-- Add simple validation rules for extracted output
+- Add validation rules for the stable claim output schema
 
 ### 5. Evaluation
 
 - Compare 2 models max for demo purposes
-- Track simple metrics such as output quality notes and latency
+- Use structured fields for deterministic information extraction accuracy checks
+- Track simple metrics such as field accuracy, summary quality, and processing latency
 - Store evaluation outputs for demo review
 
 ### 6. Optional UI

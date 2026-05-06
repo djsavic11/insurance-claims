@@ -26,13 +26,21 @@ The system must produce a JSON object with this stable structure:
 ```json
 {
   "claim_id": "string",
-  "amount": 123.45,
+  "claimant_name": "string or null",
+  "policy_number": "string or null",
+  "incident_date": "YYYY-MM-DD or null",
+  "claim_amount": 123.45,
+  "incident_description": "string or null",
   "summary": "string"
 }
 ```
 
 - `claim_id`: string
-- `amount`: number or `null`
+- `claimant_name`: string or `null`
+- `policy_number`: string or `null`
+- `incident_date`: ISO 8601 date string in `YYYY-MM-DD` format, or `null`
+- `claim_amount`: number or `null`
+- `incident_description`: string or `null`
 - `summary`: string
 - The JSON output must be saved to Amazon S3 under the `processed/` prefix
 
@@ -42,14 +50,20 @@ The system must produce a JSON object with this stable structure:
 - The processing trigger must apply to documents uploaded under the `claims/` prefix only
 - If a field cannot be extracted, set it to `null`
 - The system must always produce output and must not fail silently
+- The summary must be generated from the document content and extracted claim details
+- The output structure must remain stable across local runs, Lambda runs, and evaluation runs
 
 ## Validation Rules
 
 - `claim_id` must be a non-empty string
 - If the extracted `claim_id` is empty, fall back to the uploaded document filename stem
-- `amount` must be a number greater than or equal to `0`, or `null`
+- `claimant_name` must be a non-empty string or `null`
+- `policy_number` must be a non-empty string or `null`
+- `incident_date` must be a valid `YYYY-MM-DD` date string or `null`
+- `claim_amount` must be a number greater than or equal to `0`, or `null`
+- `incident_description` must be a non-empty string or `null`
 - `summary` must be a non-empty string
-- The output must not contain additional top-level fields outside `claim_id`, `amount`, and `summary`
+- The output must not contain additional top-level fields outside `claim_id`, `claimant_name`, `policy_number`, `incident_date`, `claim_amount`, `incident_description`, and `summary`
 
 ## Constraints
 

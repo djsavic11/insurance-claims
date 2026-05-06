@@ -12,6 +12,18 @@ Do not use it for repo setup notes or documentation cleanup.
 
 ## Entries
 
+### 2026-05-06
+
+- Task: align plan and task queue with richer claim output schema
+- Done: updated `docs/plan.md` to reference the stable claim schema from `docs/spec.md` and added the processor/schema implementation task to `docs/tasks.md`
+- Next: update processor code, prompt behavior, validation schema, local fallback extraction, and sample output to produce the richer claim output structure
+- Blocker: none
+
+- Task: address schema planning review comments
+- Done: removed Bedrock Evaluation wording from the schema-change plan section and expanded the active implementation task to include new testable sample claim files
+- Next: update processor code, prompt behavior, validation schema, local fallback extraction, sample output, and sample claim files for the richer output structure
+- Blocker: none
+
 ### 2026-05-01
 
 - Task: decide implementation runtime for the PoC

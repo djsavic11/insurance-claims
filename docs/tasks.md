@@ -2,7 +2,7 @@
 
 ## Now
 
-- None
+- Update the processor, prompt, local extractor, validation schema, sample output, and testable sample claim files to match the richer claim output schema in `docs/spec.md`
 
 ## Next
 
