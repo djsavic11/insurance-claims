@@ -12,6 +12,13 @@ Do not use it for repo setup notes or documentation cleanup.
 
 ## Entries
 
+### 2026-05-07
+
+- Task: update claim output validation schema and processor response building
+- Done: updated `src/lib/claim_output.py` to validate the richer claim output schema and updated `src/handlers/claims_processor.py` to build responses with the new fields while preserving temporary compatibility with the old `amount` extractor output
+- Next: update the Bedrock extraction prompt and response parser to return the richer claim output schema
+- Blocker: none
+
 ### 2026-05-06
 
 - Task: align plan and task queue with richer claim output schema
@@ -22,6 +29,36 @@ Do not use it for repo setup notes or documentation cleanup.
 - Task: address schema planning review comments
 - Done: removed Bedrock Evaluation wording from the schema-change plan section and expanded the active implementation task to include new testable sample claim files
 - Next: update processor code, prompt behavior, validation schema, local fallback extraction, sample output, and sample claim files for the richer output structure
+- Blocker: none
+
+- Task: define evaluation phase and split implementation tasks
+- Done: updated `docs/plan.md` to make Evaluation a dedicated phase before policy enrichment, updated `docs/spec.md` with evaluation inputs, outputs, and rules, and split `docs/tasks.md` into smaller schema, sample, evaluation, and documentation tasks
+- Next: start with the claim output validation schema and processor response-building update
+- Blocker: none
+
+- Task: tighten evaluation planning after review
+- Done: moved policy enrichment out of the execution phases and into backlog, added concrete evaluation artifact paths and scoring rules to `docs/spec.md`, and made the evaluation tasks more explicit
+- Next: start with the claim output validation schema and processor response-building update
+- Blocker: none
+
+- Task: add Bedrock Evaluation CDK prerequisite planning
+- Done: updated `docs/plan.md` and `docs/tasks.md` with the S3, IAM service role, model invocation, and optional CORS prerequisites needed before running Amazon Bedrock Evaluation jobs
+- Next: start with the claim output validation schema and processor response-building update
+- Blocker: none
+
+- Task: review evaluation planning completeness
+- Done: clarified that historical starter tasks are not the active queue and added code organization/reusability as documented evaluation findings in the plan, spec, and task list
+- Next: start with the claim output validation schema and processor response-building update
+- Blocker: none
+
+- Task: document combined evaluation reporting flow
+- Done: clarified that local structured extraction results and Amazon Bedrock Evaluation summary-quality results should be combined in the final findings rather than compared as competing evaluators
+- Next: start with the claim output validation schema and processor response-building update
+- Blocker: none
+
+- Task: specify evaluation sample document requirements
+- Done: updated `docs/spec.md` and `docs/tasks.md` to require at least 3 synthetic claim PDF samples with different layouts and all richer schema fields present
+- Next: start with the claim output validation schema and processor response-building update
 - Blocker: none
 
 ### 2026-05-01

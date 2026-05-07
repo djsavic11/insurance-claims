@@ -62,20 +62,22 @@ def lambda_handler(event, context):
 
         claim_output = build_claim_output(
             claim_id=extracted_output.get("claim_id") or fallback_id,
-            amount=extracted_output.get("amount"),
+            claimant_name=extracted_output.get("claimant_name"),
+            policy_number=extracted_output.get("policy_number"),
+            incident_date=extracted_output.get("incident_date"),
+            claim_amount=extracted_output.get("claim_amount", extracted_output.get("amount")),
+            incident_description=extracted_output.get("incident_description"),
             summary=extracted_output.get("summary")
             or f"Claim document received from s3://{object_ref['bucket']}/{object_ref['key']}",
         )
     except ValueError as exc:
         claim_output = build_claim_output(
             claim_id="unknown",
-            amount=None,
             summary=str(exc),
         )
     except Exception as exc:
         claim_output = build_claim_output(
             claim_id=fallback_claim_id(_safe_object_key(event)),
-            amount=None,
             summary=f"Processing failed: {exc}",
         )
 
@@ -91,7 +93,11 @@ def lambda_handler(event, context):
     except Exception as exc:
         claim_output = build_claim_output(
             claim_id=claim_output["claim_id"],
-            amount=claim_output["amount"],
+            claimant_name=claim_output["claimant_name"],
+            policy_number=claim_output["policy_number"],
+            incident_date=claim_output["incident_date"],
+            claim_amount=claim_output["claim_amount"],
+            incident_description=claim_output["incident_description"],
             summary=f"{claim_output['summary']} Output storage failed: {exc}",
         )
 

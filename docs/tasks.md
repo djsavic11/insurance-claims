@@ -2,17 +2,29 @@
 
 ## Now
 
-- Update the processor, prompt, local extractor, validation schema, sample output, and testable sample claim files to match the richer claim output schema in `docs/spec.md`
+- Update the Bedrock extraction prompt and response parser to return the richer claim output schema
 
 ## Next
 
+- Update the local fallback extractor to return the richer claim output schema for offline runs
+- Generate at least 3 testable synthetic claim PDF files under `data/evaluation/input/` with different layouts and with claimant name, policy number, incident date, claim amount, and incident description present
+- Update the sample processed output JSON to match the richer claim output schema
+- Add `data/evaluation/input/`, `data/evaluation/expected/`, `data/evaluation/results/`, and `data/evaluation/bedrock-evaluation/`
+- Add expected-answer JSON files for each evaluation sample document, using filenames that match the input document stems
+- Add a local evaluation runner for schema validation, deterministic structured field accuracy, 2-model comparison, and processing time measurement
+- Add CDK prerequisites for Amazon Bedrock Evaluation: S3 evaluation input/output locations and an IAM service role that Bedrock can assume
+- Grant the Bedrock Evaluation service role permissions to read evaluation input, write evaluation output, and invoke selected generator and evaluator models
+- Add S3 CORS configuration for evaluation storage only if console-created Bedrock Evaluation jobs are used
+- Add Amazon Bedrock Evaluation job support for generated summary quality and store the job input/output references under `data/evaluation/bedrock-evaluation/`
+- Combine local structured extraction results and Bedrock Evaluation summary-quality results in the final evaluation findings
+- Add `docs/evaluation.md` with evaluation methodology, metrics, code organization/reusability notes, limitations, and combined findings
+- Update README with a short evaluation summary and link to `docs/evaluation.md`
 - Update README with basic AWS CDK commands for synth, diff, deploy, and bootstrap
 
 ## Later
 
 - Add PII checks and guardrails
 - Add policy enrichment from Amazon Knowledge Bases
-- Compare 2 models max for demo purposes
 - Add a simple UI only if it materially improves the demo
 
 ## Blocked
@@ -43,3 +55,4 @@
 - Add CDK support for Amazon Bedrock model invocation logging with S3 and CloudWatch Logs
 - Configure Bedrock invocation log delivery in CDK to use a log prefix in the existing claims S3 bucket
 - Configure the required CloudWatch Logs log group and IAM service role in CDK for Bedrock invocation logging
+- Update the claim output validation schema and processor response building to match the richer claim output schema in `docs/spec.md`
