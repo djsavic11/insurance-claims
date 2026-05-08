@@ -55,6 +55,7 @@
 - Add S3 CORS configuration for evaluation storage only if console-created Bedrock Evaluation jobs are used
 - Add Amazon Bedrock Evaluation job support for generated summary quality and store the job input/output references under `data/evaluation/bedrock-evaluation/`
 - Combine local structured extraction results and Bedrock Evaluation summary-quality results in the final evaluation findings
-- Add `docs/evaluation.md` with evaluation methodology, metrics, code organization/reusability notes, limitations, and combined findings
-- Update README with a short evaluation summary and link to `docs/evaluation.md`
+- Add `EVALUATION.md` with evaluation methodology, metrics, code organization/reusability notes, limitations, and combined findings
+- Update README with a short evaluation summary and link to `EVALUATION.md`
 - Update README with basic AWS CDK commands for synth, diff, deploy, and bootstrap
+- Document the Codex agentic workflow, developer prompt examples, update ownership, and example task flows in `docs/README.md`

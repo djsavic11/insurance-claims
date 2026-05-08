@@ -12,6 +12,83 @@ Do not use it for repo setup notes or documentation cleanup.
 
 ## Entries
 
+### 2026-05-08
+
+- Task: simplify developer prompt examples
+- Done: shortened `docs/README.md` prompt examples so they express developer intent instead of repeating repository rules already covered by `AGENTS.md`
+- Next: keep prompts concise and avoid duplicating agent instructions
+- Blocker: none
+
+- Task: clarify AGENTS.md prompt usage
+- Done: updated `docs/README.md` so developer prompt examples no longer ask Codex to read `AGENTS.md` manually, because Codex and compatible agents load it as repository-level instructions
+- Next: keep developer prompts focused on task intent and source-of-truth project docs
+- Blocker: none
+
+- Task: remove supporting project docs section from agentic workflow guide
+- Done: removed the `Supporting Project Docs` section from `docs/README.md` so the guide stays focused only on the Codex workflow files
+- Next: keep evaluation documentation discoverable through the root README
+- Blocker: none
+
+- Task: move evaluation documentation to root
+- Done: moved `docs/evaluation.md` to `EVALUATION.md` and updated README, docs guide, and task references so evaluation reads as project documentation rather than core agentic workflow state
+- Next: keep `docs/` focused on Codex workflow, plan, spec, task state, and execution log
+- Blocker: none
+
+- Task: clarify evaluation docs relationship to agentic workflow
+- Done: updated `docs/README.md` so evaluation documentation is described as supporting project documentation linked from the root README, not as part of the core Codex workflow
+- Next: keep workflow docs focused on agent instructions, plan, spec, task state, and execution log
+- Blocker: none
+
+- Task: add agentic workflow terminology and references
+- Done: updated `docs/README.md` to name the approach as a spec-driven agentic development workflow and link it to AGENTS.md, docs-as-code, spec-driven development, context engineering, and repository custom instruction practices
+- Next: keep external references limited to concepts that directly explain this repository workflow
+- Blocker: none
+
+- Task: refine docs README agentic workflow guide
+- Done: rewrote `docs/README.md` so it opens with a clear agentic workflow summary, removes repeated purpose/maintenance/review sections, and keeps detailed workflow, ownership, prompts, and examples in separate sections
+- Next: keep future workflow changes in this guide concise and example-driven
+- Blocker: none
+
+- Task: document Codex agentic workflow examples
+- Done: expanded `docs/README.md` with the Codex workflow, developer prompt examples, example task flows, file update ownership, and human decision responsibilities
+- Next: use these prompt patterns when starting future Codex task runs
+- Blocker: none
+
+- Task: remove meta instructions from docs README
+- Done: revised `docs/README.md` so it reads as human-facing documentation guidance rather than exposing agent-specific instruction framing
+- Next: keep the docs guide concise and aligned with the working docs
+- Blocker: none
+
+- Task: rewrite docs README for agentic workflow
+- Done: replaced the generic `docs/README.md` with an explanation of how the docs folder supports human review and agent-assisted task coordination according to `AGENTS.md`
+- Next: keep `docs/README.md` aligned with `AGENTS.md` if workflow rules change
+- Blocker: none
+
+- Task: align README patterns with implementation
+- Done: rewrote the README engineering section as `Implemented Patterns` with concrete repository features including S3 prefixes, Lambda triggers, Bedrock Converse integration, schema validation, model configuration, local fallback extraction, invocation logging, and evaluation artifacts
+- Next: run evaluation and populate the README results table
+- Blocker: none
+
+- Task: professionalize README engineering section
+- Done: reframed the README skills section as `Engineering Focus` and rewrote the bullets around implementation qualities instead of personal skill demonstration
+- Next: run evaluation and populate the README results table
+- Blocker: none
+
+- Task: refine README project positioning
+- Done: reframed the README overview from a portfolio PoC to an example real-world AI system, emphasizing architecture, workflow, structured outputs, deployment, sample data, and evaluation artifacts
+- Next: run evaluation and populate the README results table
+- Blocker: none
+
+- Task: address README review comments
+- Done: removed the explicit certification reference from the README, expanded the skills demonstrated section with model selection, evaluation, logging, and orchestration details, moved detailed documentation guidance into `docs/README.md`, and replaced the simple limitations section with production readiness notes
+- Next: run evaluation and populate the README results table
+- Blocker: none
+
+- Task: update README for portfolio demo
+- Done: rewrote `README.md` to emphasize the portfolio context, implemented AWS/Bedrock capabilities, demo flow, sample output, prerequisites, evaluation workflow, and placeholder result table for future evaluation data
+- Next: run local and Bedrock evaluation, then replace the placeholder table values with measured results
+- Blocker: none
+
 ### 2026-05-07
 
 - Task: update claim output validation schema and processor response building
