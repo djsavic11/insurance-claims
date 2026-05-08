@@ -1,5 +1,9 @@
 {
   "claim_id": "claim-001",
-  "amount": 1250.5,
+  "claimant_name": null,
+  "policy_number": null,
+  "incident_date": null,
+  "claim_amount": 1250.5,
+  "incident_description": null,
   "summary": "Water leak damaged kitchen ceiling and flooring."
 }

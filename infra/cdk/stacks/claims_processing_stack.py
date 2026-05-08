@@ -20,6 +20,11 @@ class ClaimsProcessingStack(Stack):
             or "anthropic.claude-3-haiku-20240307-v1:0"
         )
         bedrock_log_prefix = "bedrock-invocation-logs"
+        bedrock_eval_input_prefix = "evaluation/bedrock/input"
+        bedrock_eval_output_prefix = "evaluation/bedrock/output"
+        enable_bedrock_eval_console_cors = _context_bool(
+            self.node.try_get_context("enableBedrockEvaluationConsoleCors")
+        )
 
         claims_bucket = s3.Bucket(
             self,
@@ -28,6 +33,18 @@ class ClaimsProcessingStack(Stack):
             removal_policy=RemovalPolicy.DESTROY,
             enforce_ssl=True,
         )
+        if enable_bedrock_eval_console_cors:
+            claims_bucket.add_cors_rule(
+                allowed_methods=[
+                    s3.HttpMethods.GET,
+                    s3.HttpMethods.HEAD,
+                    s3.HttpMethods.PUT,
+                    s3.HttpMethods.POST,
+                ],
+                allowed_origins=["*"],
+                allowed_headers=["*"],
+                exposed_headers=["ETag"],
+            )
 
         claims_processor = aws_lambda.Function(
             self,
@@ -92,6 +109,47 @@ class ClaimsProcessingStack(Stack):
                         f"{bedrock_invocation_log_group_resource_arn}:"
                         "log-stream:aws/bedrock/modelinvocations"
                     )
+                ],
+            )
+        )
+
+        bedrock_evaluation_role = iam.Role(
+            self,
+            "BedrockEvaluationRole",
+            assumed_by=iam.ServicePrincipal(
+                "bedrock.amazonaws.com",
+                conditions={
+                    "StringEquals": {"aws:SourceAccount": Aws.ACCOUNT_ID},
+                    "ArnLike": {
+                        "aws:SourceArn": f"arn:aws:bedrock:{Aws.REGION}:{Aws.ACCOUNT_ID}:evaluation-job/*"
+                    },
+                },
+            ),
+        )
+        bedrock_evaluation_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=[
+                    "bedrock:InvokeModel",
+                    "bedrock:CreateModelInvocationJob",
+                    "bedrock:StopModelInvocationJob",
+                ],
+                resources=["*"],
+            )
+        )
+        bedrock_evaluation_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=[
+                    "s3:GetObject",
+                    "s3:PutObject",
+                    "s3:ListBucket",
+                    "s3:GetBucketLocation",
+                    "s3:AbortMultipartUpload",
+                    "s3:ListBucketMultipartUploads",
+                ],
+                resources=[
+                    claims_bucket.bucket_arn,
+                    claims_bucket.arn_for_objects(f"{bedrock_eval_input_prefix}/*"),
+                    claims_bucket.arn_for_objects(f"{bedrock_eval_output_prefix}/*"),
                 ],
             )
         )
@@ -206,3 +264,33 @@ class ClaimsProcessingStack(Stack):
             "BedrockInvocationLogsRoleArn",
             value=bedrock_invocation_logs_role.role_arn,
         )
+        CfnOutput(
+            self,
+            "BedrockEvaluationInputS3Uri",
+            value=f"s3://{claims_bucket.bucket_name}/{bedrock_eval_input_prefix}/",
+        )
+        CfnOutput(
+            self,
+            "BedrockEvaluationOutputS3Uri",
+            value=f"s3://{claims_bucket.bucket_name}/{bedrock_eval_output_prefix}/",
+        )
+        CfnOutput(
+            self,
+            "BedrockEvaluationRoleArn",
+            value=bedrock_evaluation_role.role_arn,
+        )
+        CfnOutput(
+            self,
+            "BedrockEvaluationConsoleCorsEnabled",
+            value=str(enable_bedrock_eval_console_cors).lower(),
+        )
+
+
+def _context_bool(value) -> bool:
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return False
+    if isinstance(value, str):
+        return value.strip().lower() in ("1", "true", "yes", "y", "on")
+    return bool(value)

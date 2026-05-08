@@ -81,6 +81,19 @@ This repository keeps documentation intentionally small so humans and agents can
 - [docs/spec.md](docs/spec.md): PoC scope, inputs, outputs, and done criteria
 - [docs/tasks.md](docs/tasks.md): active task list (current iteration only)
 - [docs/log.md](docs/log.md): task execution log (decisions, outcomes, blockers)
+- [docs/evaluation.md](docs/evaluation.md): evaluation methodology and combined findings format
+
+## Evaluation Summary
+
+Evaluation is local-first and split into two complementary parts:
+
+- deterministic structured extraction checks (`claim_id`, claimant, policy, date, amount, and incident details)
+- managed Amazon Bedrock summary-quality evaluation
+
+The final findings combine both result types in one report:
+
+- local extraction accuracy and latency from `data/evaluation/results/`
+- Bedrock evaluation references and job artifacts from `data/evaluation/bedrock-evaluation/`
 
 ## Repository Structure
 
@@ -176,3 +189,31 @@ Optional arguments:
 
 Processed JSON results are written back to the same bucket under the `processed/` prefix.
 The CDK stack outputs the generated claims bucket name after deployment.
+
+## CDK Commands
+
+Run from `infra/cdk/`.
+
+Bootstrap:
+
+```bash
+cdk bootstrap
+```
+
+Synthesize:
+
+```bash
+cdk synth
+```
+
+Diff:
+
+```bash
+cdk diff
+```
+
+Deploy:
+
+```bash
+cdk deploy
+```

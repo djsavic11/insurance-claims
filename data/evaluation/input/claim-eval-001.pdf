@@ -1,0 +1,46 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 620 >>
+stream
+BT
+/F1 12 Tf
+72 740 Td
+(Auto Insurance Claim Intake Form) Tj
+0 -20 Td
+(Claim ID: EVAL-001) Tj
+0 -20 Td
+(Claimant Name: Mark Johnson) Tj
+0 -20 Td
+(Policy Number: AUTO-PL-88421) Tj
+0 -20 Td
+(Incident Date: 2026-04-13) Tj
+0 -20 Td
+(Claim Amount: 2450.75) Tj
+0 -20 Td
+(Incident Description: Rear-end collision on Highway 75 damaged rear bumper and trunk.) Tj
+0 -20 Td
+(Summary: Rear-end collision with visible rear-body damage requiring bodywork and paint.) Tj
+ET
+endstream
+endobj
+xref
+0 5
+0000000000 65535 f 
+0000000010 00000 n 
+0000000062 00000 n 
+0000000114 00000 n 
+0000000201 00000 n 
+trailer
+<< /Size 5 /Root 1 0 R >>
+startxref
+890
+%%EOF

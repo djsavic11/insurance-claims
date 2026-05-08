@@ -19,6 +19,21 @@ Do not use it for repo setup notes or documentation cleanup.
 - Next: update the Bedrock extraction prompt and response parser to return the richer claim output schema
 - Blocker: none
 
+- Task: update Bedrock extraction prompt and response parser
+- Done: updated `src/lib/bedrock_extraction.py` so the Bedrock prompt requests the richer schema fields and the parser returns the richer output shape, including temporary compatibility mapping from legacy `amount` to `claim_amount`
+- Next: update the local fallback extractor to return the richer claim output schema for offline runs
+- Blocker: none
+
+- Task: execute remaining evaluation implementation queue
+- Done: updated local fallback extraction to richer schema, created 3 synthetic evaluation PDF samples and matching expected-answer files, added evaluation folder structure, updated sample processed output shape, added `scripts/evaluate_claims.py` for local deterministic scoring and optional Bedrock evaluation job submission, added CDK Bedrock evaluation prerequisites (S3 paths, role, permissions, conditional CORS), and added evaluation/readme documentation updates
+- Next: none in `Now`/`Next`; continue with `Later` tasks only when approved
+- Blocker: none
+
+- Task: address evaluation review findings
+- Done: updated Bedrock Evaluation BYOI JSONL output to use `modelResponses`, changed managed evaluation submission to create one job per model identifier, and fixed CDK context parsing for the optional console CORS flag
+- Next: none in `Now`/`Next`; continue with `Later` tasks only when approved
+- Blocker: none
+
 ### 2026-05-06
 
 - Task: align plan and task queue with richer claim output schema
