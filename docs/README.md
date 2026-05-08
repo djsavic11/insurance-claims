@@ -40,13 +40,13 @@ If the requested change alters behavior, inputs, outputs, validation, constraint
 
 ## File Ownership
 
-| File | Purpose | Updated By | Update When |
-| --- | --- | --- | --- |
-| [AGENTS.md](../AGENTS.md) | Agent working rules and coordination model | Human/developer, sometimes Codex with approval | Repository workflow rules change |
-| [plan.md](plan.md) | Build phases, execution order, tooling, and implementation approach | Human/developer or Codex | Phase, sequencing, tooling, or approach changes |
-| [spec.md](spec.md) | Required behavior, inputs, outputs, validation rules, and constraints | Human/developer or Codex | System behavior or contracts change |
-| [tasks.md](tasks.md) | Live work queue | Codex during execution; human/developer for priorities | Work moves between `Now`, `Next`, `Later`, `Blocked`, and `Done` |
-| [log.md](log.md) | Execution history for real task runs | Codex | A task starts, completes, or is blocked |
+| File                      | Purpose                                                               | Updated By                                             | Update When                                                      |
+| ------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------- |
+| [AGENTS.md](../AGENTS.md) | Agent working rules and coordination model                            | Human/developer, sometimes Codex with approval         | Repository workflow rules change                                 |
+| [plan.md](plan.md)        | Build phases, execution order, tooling, and implementation approach   | Human/developer or Codex                               | Phase, sequencing, tooling, or approach changes                  |
+| [spec.md](spec.md)        | Required behavior, inputs, outputs, validation rules, and constraints | Human/developer or Codex                               | System behavior or contracts change                              |
+| [tasks.md](tasks.md)      | Live work queue                                                       | Codex during execution; human/developer for priorities | Work moves between `Now`, `Next`, `Later`, `Blocked`, and `Done` |
+| [log.md](log.md)          | Execution history for real task runs                                  | Codex                                                  | A task starts, completes, or is blocked                          |
 
 Humans and developers own product direction.
 They should update the docs directly, or ask Codex to update them, when decisions affect scope, AWS service choices, model choices, evaluation expectations, demo priorities, or what the PoC is meant to prove.
@@ -113,8 +113,11 @@ Do not change files yet.
 
 ## Related Concepts
 
-- [AGENTS.md](https://agents.md/): a shared convention for giving AI coding agents repository-specific instructions.
-- [GitHub Copilot repository custom instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions): repository-level guidance that helps AI coding tools understand how to build, test, and validate changes.
+## References
+
+- [AGENTS.md](https://agents.md/): a shared convention for providing repository-specific instructions to AI coding agents.
+- [Custom instructions with AGENTS.md](https://developers.openai.com/codex/guides/agents-md): OpenAI Codex guidance for loading repository-level agent instructions from `AGENTS.md`.
+- [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/): OpenAI engineering perspective on humans steering, agents executing, repository memory, and autonomous workflows. [oai_citation:0‡OpenAI](https://openai.com/index/harness-engineering/?utm_source=chatgpt.com)
+- [Using PLANS.md for multi-hour problem solving](https://developers.openai.com/cookbook/articles/codex_exec_plans): OpenAI Cookbook article on execution plans, phased implementation, and long-running agent workflows.
+- [How Claude remembers your project](https://code.claude.com/docs/en/memory): Anthropic documentation for layered project memory, persistent instructions, and reusable agent context.
 - [Docs-as-code](https://www.doctave.com/docs-as-code): managing documentation through the same source-control and review workflow as code.
-- [Context engineering](https://www.ibm.com/think/topics/context-engineering): deliberately structuring the information an AI model or agent receives so its work is more relevant and reliable.
-- [Spec-based development for AI coding agents](https://specthis.ai/): using a written specification as the source of truth before an agent writes code.

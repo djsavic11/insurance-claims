@@ -14,6 +14,11 @@ Do not use it for repo setup notes or documentation cleanup.
 
 ### 2026-05-08
 
+- Task: update agentic workflow references
+- Done: replaced the GitHub Copilot reference in `docs/README.md` with official OpenAI Codex references for AGENTS.md, harness engineering, and PLANS.md execution planning
+- Next: keep references focused on sources that directly support the documented Codex workflow
+- Blocker: none
+
 - Task: simplify developer prompt examples
 - Done: shortened `docs/README.md` prompt examples so they express developer intent instead of repeating repository rules already covered by `AGENTS.md`
 - Next: keep prompts concise and avoid duplicating agent instructions
