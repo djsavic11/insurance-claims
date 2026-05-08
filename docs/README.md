@@ -111,8 +111,6 @@ Do not change files yet.
 5. Codex adds or adjusts tasks in [tasks.md](tasks.md).
 6. Codex implements code only after the intended behavior is documented.
 
-## Related Concepts
-
 ## References
 
 - [AGENTS.md](https://agents.md/): a shared convention for providing repository-specific instructions to AI coding agents.
