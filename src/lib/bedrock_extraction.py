@@ -1,44 +1,27 @@
 import json
 import re
 
+from .prompt_templates import PromptTemplateManager
+
 
 _JSON_BLOCK_PATTERN = re.compile(r"\{.*\}", re.DOTALL)
-
-_SYSTEM_PROMPT = (
-    "You extract structured insurance claim data from claim documents. "
-    "Return only valid JSON with the keys claim_id, claimant_name, policy_number, "
-    "incident_date, claim_amount, incident_description, and summary. "
-    "Use null for any field that cannot be determined except summary. "
-    "incident_date must be in YYYY-MM-DD format when available. "
-    "claim_amount must be a number or null. "
-    "Do not include markdown or extra commentary."
-)
+_PROMPTS = PromptTemplateManager()
+_CLAIM_EXTRACTION_PROMPT = "bedrock/claim_extraction.md"
 
 
 def extract_claim_output_with_bedrock(document_text, *, bedrock_client, model_id):
+    prompt = _PROMPTS.render_chat(_CLAIM_EXTRACTION_PROMPT, document_text=document_text)
+
     response = bedrock_client.converse(
         modelId=model_id,
-        system=[{"text": _SYSTEM_PROMPT}],
+        system=[{"text": prompt.system}],
         messages=[
             {
                 "role": "user",
-                "content": [
-                    {
-                        "text": (
-                            "Extract the insurance claim data from the document text below.\n"
-                            "Return JSON with claim_id, claimant_name, policy_number, "
-                            "incident_date, claim_amount, incident_description, and summary only.\n"
-                            "If a field is missing, return it as null.\n\n"
-                            f"{document_text}"
-                        )
-                    }
-                ],
+                "content": [{"text": prompt.user}],
             }
         ],
-        inferenceConfig={
-            "temperature": 0,
-            "maxTokens": 300,
-        },
+        inferenceConfig=prompt.inference_config,
     )
 
     return _parse_model_output(_collect_text_output(response))

@@ -2,7 +2,7 @@
 
 ## Now
 
-- Add a lightweight local prompt template manager to keep Bedrock extraction prompts separate from processing code
+- None
 
 ## Next
 
@@ -20,6 +20,7 @@
 
 ## Done
 
+- Add a lightweight local prompt template manager to keep Bedrock extraction prompts separate from processing code
 - Initialize Git repository
 - Create `setup-project` branch
 - Commit initial repository files

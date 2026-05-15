@@ -12,6 +12,18 @@ Do not use it for repo setup notes or documentation cleanup.
 
 ## Entries
 
+### 2026-05-15
+
+- Task: convert extraction prompt to Markdown
+- Done: replaced the split Bedrock prompt text files with a single Markdown prompt file containing front matter plus `## System` and `## User` sections, extended the prompt manager to parse that format, and wired Bedrock extraction to use prompt metadata for inference settings
+- Next: keep future prompt changes in Markdown prompt files under `prompts/`
+- Blocker: none
+
+- Task: add local prompt template manager
+- Done: added a dependency-free prompt template manager under `src/lib/`, moved the Bedrock extraction system and user prompts into `prompts/bedrock/`, and wired Bedrock extraction to render those templates before calling Converse
+- Next: none in `Now`/`Next`; continue with `Later` tasks only when approved
+- Blocker: none
+
 ### 2026-05-10
 
 - Task: fix visible evaluation PDFs
