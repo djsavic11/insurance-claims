@@ -12,6 +12,13 @@ Do not use it for repo setup notes or documentation cleanup.
 
 ## Entries
 
+### 2026-05-10
+
+- Task: fix visible evaluation PDFs
+- Done: regenerated `data/evaluation/input/claim-eval-001.pdf`, `claim-eval-002.pdf`, and `claim-eval-003.pdf` as valid visible PDF documents while preserving the expected evaluation claim content
+- Next: keep evaluation PDF fixtures viewer-readable and extractor-readable
+- Blocker: none
+
 ### 2026-05-08
 
 - Task: update agentic workflow references

@@ -6,41 +6,46 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
 endobj
 4 0 obj
-<< /Length 660 >>
+<< /Length 431 >>
 stream
 BT
 /F1 12 Tf
 72 740 Td
+16 TL
 (Home Property Claim Worksheet) Tj
-0 -20 Td
+T*
 (Policy Number: HOME-7781-2026) Tj
-0 -20 Td
+T*
 (Claimant Name: Ana Petrovic) Tj
-0 -20 Td
+T*
 (Claim ID: EVAL-002) Tj
-0 -20 Td
+T*
 (Incident Description: Burst kitchen pipe caused water damage to cabinets and hardwood floor.) Tj
-0 -20 Td
+T*
 (Incident Date: 2026-03-02) Tj
-0 -20 Td
+T*
 (Claim Amount: 4890.00) Tj
-0 -20 Td
+T*
 (Summary: Water damage claim from burst pipe with flooring and cabinet replacement needed.) Tj
 ET
 endstream
 endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
 xref
-0 5
+0 6
 0000000000 65535 f 
-0000000010 00000 n 
-0000000062 00000 n 
-0000000114 00000 n 
-0000000201 00000 n 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000722 00000 n 
 trailer
-<< /Size 5 /Root 1 0 R >>
+<< /Size 6 /Root 1 0 R >>
 startxref
-948
+792
 %%EOF

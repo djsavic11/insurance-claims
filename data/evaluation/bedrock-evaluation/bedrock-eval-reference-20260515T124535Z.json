@@ -1,0 +1,7 @@
+{
+  "dataset_local_path": "/Users/djordje.savic/Works/AWS Gen AI/SkillBuilder/insurance-claims/data/evaluation/bedrock-evaluation/bedrock-eval-input-20260515T124535Z.jsonl",
+  "dataset_record_count": 6,
+  "dataset_format": "Model-as-judge BYOI prompt dataset with precomputed responses. Each record includes prompt, category, optional referenceResponse, and modelResponses.",
+  "s3_input_uri": null,
+  "evaluation_jobs": []
+}

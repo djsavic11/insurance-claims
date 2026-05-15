@@ -1,0 +1,253 @@
+{
+  "run_started_at_utc": "20260515T124535Z",
+  "models": [
+    "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "eu.anthropic.claude-sonnet-4-6"
+  ],
+  "input_dir": "/Users/djordje.savic/Works/AWS Gen AI/SkillBuilder/insurance-claims/data/evaluation/input",
+  "expected_dir": "/Users/djordje.savic/Works/AWS Gen AI/SkillBuilder/insurance-claims/data/evaluation/expected",
+  "document_count": 3,
+  "record_count": 6,
+  "results": [
+    {
+      "document": "claim-eval-001.pdf",
+      "document_stem": "claim-eval-001",
+      "model_identifier": "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "schema_valid": true,
+      "extraction_error": null,
+      "schema_error": null,
+      "output": {
+        "claim_id": "EVAL-001",
+        "claimant_name": "Mark Johnson",
+        "policy_number": "AUTO-PL-88421",
+        "incident_date": "2026-04-13",
+        "claim_amount": 2450.75,
+        "incident_description": "Rear-end collision on Highway 75 damaged rear bumper and trunk.",
+        "summary": "Rear-end collision with visible rear-body damage requiring bodywork and paint."
+      },
+      "field_results": {
+        "claim_id": true,
+        "claimant_name": true,
+        "policy_number": true,
+        "incident_date": true,
+        "claim_amount": true,
+        "incident_description": true
+      },
+      "structured_field_accuracy": 1.0,
+      "structured_fields_scored": 6,
+      "summary_quality_reference": {
+        "mode": "amazon-bedrock-evaluation",
+        "status": "pending"
+      },
+      "timing_ms": {
+        "parse": 0.02,
+        "extract": 1635.99,
+        "validate": 17.98,
+        "total_processing": 1653.99
+      }
+    },
+    {
+      "document": "claim-eval-001.pdf",
+      "document_stem": "claim-eval-001",
+      "model_identifier": "eu.anthropic.claude-sonnet-4-6",
+      "schema_valid": true,
+      "extraction_error": null,
+      "schema_error": null,
+      "output": {
+        "claim_id": "EVAL-001",
+        "claimant_name": "Mark Johnson",
+        "policy_number": "AUTO-PL-88421",
+        "incident_date": "2026-04-13",
+        "claim_amount": 2450.75,
+        "incident_description": "Rear-end collision on Highway 75 damaged rear bumper and trunk.",
+        "summary": "Rear-end collision with visible rear-body damage requiring bodywork and paint."
+      },
+      "field_results": {
+        "claim_id": true,
+        "claimant_name": true,
+        "policy_number": true,
+        "incident_date": true,
+        "claim_amount": true,
+        "incident_description": true
+      },
+      "structured_field_accuracy": 1.0,
+      "structured_fields_scored": 6,
+      "summary_quality_reference": {
+        "mode": "amazon-bedrock-evaluation",
+        "status": "pending"
+      },
+      "timing_ms": {
+        "parse": 0.02,
+        "extract": 1974.76,
+        "validate": 0.08,
+        "total_processing": 1974.86
+      }
+    },
+    {
+      "document": "claim-eval-002.pdf",
+      "document_stem": "claim-eval-002",
+      "model_identifier": "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "schema_valid": true,
+      "extraction_error": null,
+      "schema_error": null,
+      "output": {
+        "claim_id": "EVAL-002",
+        "claimant_name": "Ana Petrovic",
+        "policy_number": "HOME-7781-2026",
+        "incident_date": "2026-03-02",
+        "claim_amount": 4890.0,
+        "incident_description": "Burst kitchen pipe caused water damage to cabinets and hardwood floor.",
+        "summary": "Water damage claim from burst pipe with flooring and cabinet replacement needed."
+      },
+      "field_results": {
+        "claim_id": true,
+        "claimant_name": true,
+        "policy_number": true,
+        "incident_date": true,
+        "claim_amount": true,
+        "incident_description": true
+      },
+      "structured_field_accuracy": 1.0,
+      "structured_fields_scored": 6,
+      "summary_quality_reference": {
+        "mode": "amazon-bedrock-evaluation",
+        "status": "pending"
+      },
+      "timing_ms": {
+        "parse": 0.05,
+        "extract": 1107.52,
+        "validate": 0.03,
+        "total_processing": 1107.6
+      }
+    },
+    {
+      "document": "claim-eval-002.pdf",
+      "document_stem": "claim-eval-002",
+      "model_identifier": "eu.anthropic.claude-sonnet-4-6",
+      "schema_valid": true,
+      "extraction_error": null,
+      "schema_error": null,
+      "output": {
+        "claim_id": "EVAL-002",
+        "claimant_name": "Ana Petrovic",
+        "policy_number": "HOME-7781-2026",
+        "incident_date": "2026-03-02",
+        "claim_amount": 4890.0,
+        "incident_description": "Burst kitchen pipe caused water damage to cabinets and hardwood floor.",
+        "summary": "Water damage claim from burst pipe with flooring and cabinet replacement needed."
+      },
+      "field_results": {
+        "claim_id": true,
+        "claimant_name": true,
+        "policy_number": true,
+        "incident_date": true,
+        "claim_amount": true,
+        "incident_description": true
+      },
+      "structured_field_accuracy": 1.0,
+      "structured_fields_scored": 6,
+      "summary_quality_reference": {
+        "mode": "amazon-bedrock-evaluation",
+        "status": "pending"
+      },
+      "timing_ms": {
+        "parse": 0.05,
+        "extract": 1697.09,
+        "validate": 0.22,
+        "total_processing": 1697.36
+      }
+    },
+    {
+      "document": "claim-eval-003.pdf",
+      "document_stem": "claim-eval-003",
+      "model_identifier": "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "schema_valid": true,
+      "extraction_error": null,
+      "schema_error": null,
+      "output": {
+        "claim_id": "EVAL-003",
+        "claimant_name": "Delta Courier LLC",
+        "policy_number": "COMM-VEH-99210",
+        "incident_date": "2026-01-28",
+        "claim_amount": 1320.25,
+        "incident_description": "Delivery van side mirror and front fender damaged during low-speed parking impact.",
+        "summary": "Commercial van sustained side impact damage with minor body repair and mirror replacement."
+      },
+      "field_results": {
+        "claim_id": true,
+        "claimant_name": true,
+        "policy_number": true,
+        "incident_date": true,
+        "claim_amount": true,
+        "incident_description": true
+      },
+      "structured_field_accuracy": 1.0,
+      "structured_fields_scored": 6,
+      "summary_quality_reference": {
+        "mode": "amazon-bedrock-evaluation",
+        "status": "pending"
+      },
+      "timing_ms": {
+        "parse": 0.08,
+        "extract": 1513.89,
+        "validate": 0.17,
+        "total_processing": 1514.14
+      }
+    },
+    {
+      "document": "claim-eval-003.pdf",
+      "document_stem": "claim-eval-003",
+      "model_identifier": "eu.anthropic.claude-sonnet-4-6",
+      "schema_valid": true,
+      "extraction_error": null,
+      "schema_error": null,
+      "output": {
+        "claim_id": "EVAL-003",
+        "claimant_name": "Delta Courier LLC",
+        "policy_number": "COMM-VEH-99210",
+        "incident_date": "2026-01-28",
+        "claim_amount": 1320.25,
+        "incident_description": "Delivery van side mirror and front fender damaged during low-speed parking impact.",
+        "summary": "Commercial van sustained side impact damage with minor body repair and mirror replacement."
+      },
+      "field_results": {
+        "claim_id": true,
+        "claimant_name": true,
+        "policy_number": true,
+        "incident_date": true,
+        "claim_amount": true,
+        "incident_description": true
+      },
+      "structured_field_accuracy": 1.0,
+      "structured_fields_scored": 6,
+      "summary_quality_reference": {
+        "mode": "amazon-bedrock-evaluation",
+        "status": "pending"
+      },
+      "timing_ms": {
+        "parse": 0.08,
+        "extract": 1635.1,
+        "validate": 0.11,
+        "total_processing": 1635.2899999999997
+      }
+    }
+  ],
+  "summary": {
+    "eu.anthropic.claude-haiku-4-5-20251001-v1:0": {
+      "records": 3,
+      "schema_valid_rate": 1.0,
+      "average_structured_field_accuracy": 1.0,
+      "average_total_processing_ms": 1425.24
+    },
+    "eu.anthropic.claude-sonnet-4-6": {
+      "records": 3,
+      "schema_valid_rate": 1.0,
+      "average_structured_field_accuracy": 1.0,
+      "average_total_processing_ms": 1769.17
+    }
+  },
+  "notes": {
+    "latency_interpretation": "Directional metric for PoC comparison; not a production benchmark.",
+    "console_cors_mode": false
+  }
+}
