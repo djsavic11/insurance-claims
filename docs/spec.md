@@ -52,6 +52,7 @@ The system must produce a JSON object with this stable structure:
 - The system must always produce output and must not fail silently
 - The summary must be generated from the document content and extracted claim details
 - The output structure must remain stable across local runs, Lambda runs, and evaluation runs
+- Prompt templates must be kept separate from processing code and must preserve the stable output structure
 
 ## Validation Rules
 

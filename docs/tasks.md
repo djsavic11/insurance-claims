@@ -2,7 +2,7 @@
 
 ## Now
 
-- None
+- Add a lightweight local prompt template manager to keep Bedrock extraction prompts separate from processing code
 
 ## Next
 

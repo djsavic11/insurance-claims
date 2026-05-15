@@ -62,6 +62,7 @@ Prefer a clear end-to-end demo over complete architecture or production-level qu
 
 - Implement document ingestion from S3 event
 - Implement document parsing and prompt preparation
+- Keep prompt templates separated from processing code
 - Implement extraction for the stable claim schema, including claimant, policy, incident, amount, description, and summary fields
 - Save outputs in the structured format defined in `docs/spec.md`
 
